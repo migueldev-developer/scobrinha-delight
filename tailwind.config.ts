@@ -61,7 +61,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Game specific colors
+				snake: {
+					primary: 'hsl(var(--snake-primary))',
+					secondary: 'hsl(var(--snake-secondary))'
+				},
+				food: 'hsl(var(--food-color))',
+				'game-bg': 'hsl(var(--game-bg))',
+				'grid-line': 'hsl(var(--grid-line))'
+			},
+			backgroundImage: {
+				'gradient-game': 'var(--gradient-game)',
+				'gradient-snake': 'var(--gradient-snake)',
+				'gradient-ui': 'var(--gradient-ui)'
+			},
+			boxShadow: {
+				'glow': 'var(--shadow-glow)',
+				'neon': 'var(--shadow-neon)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +101,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'snake-move': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'food-pulse': {
+					'0%, 100%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.2)', opacity: '0.8' }
+				},
+				'score-pop': {
+					'0%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.2)' },
+					'100%': { transform: 'scale(1)' }
+				},
+				'game-over': {
+					'0%': { opacity: '0', transform: 'scale(0.8)' },
+					'100%': { opacity: '1', transform: 'scale(1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'snake-move': 'snake-move 0.3s ease-in-out',
+				'food-pulse': 'food-pulse 1.5s ease-in-out infinite',
+				'score-pop': 'score-pop 0.3s ease-out',
+				'game-over': 'game-over 0.5s ease-out'
 			}
 		}
 	},
