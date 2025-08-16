@@ -153,13 +153,13 @@ export const SnakeGame = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Clear canvas
-    ctx.fillStyle = 'hsl(var(--game-bg))';
+    // Clear canvas with dark game background
+    ctx.fillStyle = '#0a0a0f';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw grid lines
-    ctx.strokeStyle = 'hsl(var(--grid-line))';
-    ctx.lineWidth = 0.5;
+    ctx.strokeStyle = '#2a2d3a';
+    ctx.lineWidth = 1;
     for (let i = 0; i <= GRID_SIZE; i++) {
       ctx.beginPath();
       ctx.moveTo(i * (canvas.width / GRID_SIZE), 0);
@@ -174,10 +174,10 @@ export const SnakeGame = () => {
 
     const cellSize = canvas.width / GRID_SIZE;
 
-    // Draw food
-    ctx.fillStyle = 'hsl(var(--food-color))';
-    ctx.shadowColor = 'hsl(var(--food-color))';
-    ctx.shadowBlur = 10;
+    // Draw food (red apple)
+    ctx.fillStyle = '#dc2626';
+    ctx.shadowColor = '#dc2626';
+    ctx.shadowBlur = 15;
     ctx.fillRect(
       food.x * cellSize + 2,
       food.y * cellSize + 2,
@@ -189,14 +189,15 @@ export const SnakeGame = () => {
     // Draw snake
     snake.forEach((segment, index) => {
       if (index === 0) {
-        // Head
-        ctx.fillStyle = 'hsl(var(--snake-primary))';
-        ctx.shadowColor = 'hsl(var(--snake-primary))';
-        ctx.shadowBlur = 15;
+        // Head (bright green)
+        ctx.fillStyle = '#22c55e';
+        ctx.shadowColor = '#22c55e';
+        ctx.shadowBlur = 20;
       } else {
-        // Body
-        ctx.fillStyle = 'hsl(var(--snake-secondary))';
-        ctx.shadowBlur = 5;
+        // Body (darker green)
+        ctx.fillStyle = '#16a34a';
+        ctx.shadowColor = '#16a34a';
+        ctx.shadowBlur = 8;
       }
       
       ctx.fillRect(
